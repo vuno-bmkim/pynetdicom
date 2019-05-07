@@ -362,9 +362,14 @@ class C_STORE(DIMSEPrimitive):
             value = codecs.encode(value, 'ascii')
 
         if value:
-            self._move_originator_application_entity_title = (
-                validate_ae_title(value)
-            )
+            try:
+                self._move_originator_application_entity_title = (
+                    validate_ae_title(value)
+                )
+            except Exception as e:
+                # For exception that value, which is 
+                # a parameter of validate_ae_title(), is an empty string
+                self._move_originator_application_entity_title = None
         else:
             self._move_originator_application_entity_title = None
 
