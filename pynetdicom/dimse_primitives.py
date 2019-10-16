@@ -404,9 +404,10 @@ class C_STORE(DIMSEPrimitive):
         if value in [0, 1, 2]:
             self._priority = value
         else:
-            LOGGER.warning("Attempted to set C-STORE Priority parameter to "
-                           "an invalid value")
-            raise ValueError("C-STORE Priority must be 0, 1, or 2")
+            self._priority = 2
+            # LOGGER.warning("Attempted to set C-STORE Priority parameter to "
+            #               "an invalid value")
+            # raise ValueError("C-STORE Priority must be 0, 1, or 2")
 
 
 class C_FIND(DIMSEPrimitive):
