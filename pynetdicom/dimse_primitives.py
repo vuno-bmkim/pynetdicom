@@ -359,7 +359,10 @@ class C_STORE(DIMSEPrimitive):
             an empty string and will be truncated to 16 characters long
         """
         if isinstance(value, str):
-            value = codecs.encode(value, 'ascii')
+            try:
+                value = codecs.encode(value, 'ascii')
+            except Exception:
+                value = None
 
         if value:
             try:
